@@ -1,0 +1,36 @@
+{
+  "name": "@prettier/plugin-ruby",
+  "version": "0.0.0-development",
+  "description": "Prettier Ruby Plugin",
+  "repository": "bigbinary/prettier-ruby-temporary",
+  "author": "Sushant Mittal <@sushantmittal>",
+  "license": "MIT",
+  "main": "src",
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "node-run-cmd": "^1.0.1",
+    "prettier": "prettier/prettier#ee148bfdeda373445ac9b67338cbae3df10a6576",
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "eslint": "4.1.1",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "2.6.1",
+    "eslint-plugin-jest": "21.5.0",
+    "eslint-plugin-prettier": "2.4.0",
+    "jest": "21.1.0",
+    "jest-runner-eslint": "0.3.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "prettier": "prettier --plugin=. --parser=ruby"
+  },
+  "jest": {
+    "projects": [
+      "<rootDir>/jest.*.config.js"
+    ]
+  }
+}
