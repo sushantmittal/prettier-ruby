@@ -23,6 +23,8 @@ const printKwarg = require("./printers/print_kwarg");
 const printRestarg = require("./printers/print_restarg");
 const printArgument = require("./printers/print_argument");
 const printBlockPass = require("./printers/print_block_pass");
+const printSingleton = require("./printers/literal/print_singleton");
+const printSend = require("./printers/print_send");
 
 function genericPrint(path, options, print) {
   const node = path.getValue();
@@ -86,6 +88,13 @@ function printNode(path, options, print) {
       return printArgument(path, options, print);
     case "block_pass":
       return printBlockPass(path, options, print);
+    case "self":
+    case "true":
+    case "false":
+    case "nil":
+      return printSingleton(path, options, print);
+    case "send":
+      return printSend(path, options, print);
     default:
       return "Have not implemented type " + node.type + " yet.";
   }

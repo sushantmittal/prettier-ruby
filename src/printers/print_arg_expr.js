@@ -7,16 +7,20 @@ const indent = docBuilders.indent;
 const softline = docBuilders.softline;
 
 const printArgExpr = (path, options, print) => {
-  return group(
-    concat([
-      "(",
-      indent(
-        concat([softline, path.call(print, "children", 0)]),
-      ),
-      softline,
-      ")"
-    ])
-  )
+  const body = path.call(print, "children", 0);
+
+  return R.isEmpty(body)
+    ? "()"
+    : group(
+        concat([
+          "(",
+          indent(
+            concat([softline, path.call(print, "children", 0)]),
+          ),
+          softline,
+          ")"
+        ])
+      )
 }
 
 module.exports = printArgExpr;
