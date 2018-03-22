@@ -2,7 +2,7 @@
   "name": "@prettier/plugin-ruby",
   "version": "0.0.0-development",
   "description": "Prettier Ruby Plugin",
-  "repository": "bigbinary/prettier-ruby-temporary",
+  "repository": "bigbinary/prettier-ruby",
   "author": "Sushant Mittal <@sushantmittal>",
   "license": "MIT",
   "main": "src",
