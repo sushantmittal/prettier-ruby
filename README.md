@@ -1,7 +1,8 @@
 
 ## prettier-ruby
 
-prettier-ruby is an attempt to bring prettier type features for ruby.
+prettier-ruby is an attempt to bring an opinionated code formatting feature to ruby.
+It is part of larget eco system being built around [prettier](https://prettier.io/) .
 
 Please watch [this video](https://www.youtube.com/watch?v=hkfBvpEfWdA) to 
 understand both "what prettier does" and "how prettier works".
