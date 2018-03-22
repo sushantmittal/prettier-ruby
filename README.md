@@ -3,7 +3,7 @@
 
 prettier-ruby is an attempt to bring prettier type features for ruby.
 
-Please watch this video https://www.youtube.com/watch?v=hkfBvpEfWdA to 
+Please watch [this video](https://www.youtube.com/watch?v=hkfBvpEfWdA) to 
 understand both "what prettier does" and "how prettier works".
 
 This tool is using https://github.com/whitequark/parser to convert existing
