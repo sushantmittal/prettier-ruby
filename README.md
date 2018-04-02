@@ -20,5 +20,10 @@ from the larger prettier ecosystem.
 In order to work with prettier the code that will convert from AST to
 ruby need to be in nodejs. So this is a nodejs project.
 
-TODOS:
-1. I found one extra condition which we need to handle in existing written types (https://github.com/bigbinary/prettier-ruby/tree/master/src/printers) as well.
+
+## Testing
+
+- Clone this repository.
+- Run `yarn`.
+- Create a file called `test.rb`.
+- Run `yarn prettier test.rb` to check the output.
