@@ -30,6 +30,6 @@ ruby need to be in nodejs. So this is a nodejs project.
 
 ## Guide
 
-- [Working of parser] (https://github.com/bigbinary/prettier-ruby/wiki/Working-of-parser)
-- [Working of printers] (https://github.com/bigbinary/prettier-ruby/wiki/Working-of-printers)
+- [Working of parser](https://github.com/bigbinary/prettier-ruby/wiki/Working-of-parser)
+- [Working of printers](https://github.com/bigbinary/prettier-ruby/wiki/Working-of-printers)
 
