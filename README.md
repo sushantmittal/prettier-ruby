@@ -27,3 +27,9 @@ ruby need to be in nodejs. So this is a nodejs project.
 - Run `yarn`.
 - Create a file called `test.rb`.
 - Run `yarn prettier test.rb` to check the output.
+
+## Guide
+
+- [Working of parser] (https://github.com/bigbinary/prettier-ruby/wiki/Working-of-parser)
+- [Working of printers] (https://github.com/bigbinary/prettier-ruby/wiki/Working-of-printers)
+
