@@ -93,8 +93,8 @@ function printNode(path, options, print) {
     case "false":
     case "nil":
       return printSingleton(path, options, print);
-    case "send":
-      return printSend(path, options, print);
+    // case "send":
+    //   return printSend(path, options, print);
     default:
       return "Have not implemented type " + node.type + " yet.";
   }

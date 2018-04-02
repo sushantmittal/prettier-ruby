@@ -15,7 +15,7 @@ const printArgExpr = (path, options, print) => {
         concat([
           "(",
           indent(
-            concat([softline, path.call(print, "children", 0)]),
+            concat([softline, path.call(print, "children", 0)])
           ),
           softline,
           ")"
