@@ -10,10 +10,12 @@ const indent = docBuilders.indent;
 const hardline = docBuilders.hardline;
 const softline = docBuilders.softline;
 
-const printClass = (path, options, print) => {
-  const className = path.call(print, "children", 0);
-  const parentClassName = path.call(print, "children", 1);
-  const classBody = path.call(print, "children", 2);
+const { parenthesizedCall, indentedCall } = require("../fast_path_util");
+
+const printContent = (path, options, print) => {
+  const className = parenthesizedCall(path, print, ["children", 0])
+  const parentClassName = parenthesizedCall(path, print, ["children", 1]);
+  const classBody = indentedCall(path, print, ["children", 2])
 
   return R.isEmpty(classBody)
     ? group(
@@ -51,12 +53,13 @@ const printClass = (path, options, print) => {
                 ])
           ])
         ),
-        indent(
-          concat([hardline, classBody])
-        ),
-        hardline,
+        classBody
         "end"
       ]);
+}
+
+const printClass = (path, options, print) => {
+  return [printContent(path, options, print), true];
 }
 
 module.exports = printClass;

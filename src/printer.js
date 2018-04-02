@@ -6,6 +6,7 @@ const docBuilders = require("prettier").doc.builders;
 const concat = docBuilders.concat;
 const hardline = docBuilders.hardline;
 
+const { printWithPassedOptions } = require("./utils/printer_util");
 const printBegin = require("./printers/print_begin");
 const printClass = require("./printers/print_class");
 const printSclass = require("./printers/print_sclass");
@@ -28,17 +29,22 @@ const printSend = require("./printers/print_send");
 
 function genericPrint(path, options, print) {
   const node = path.getValue();
+  const nodeType = R.prop("type", node);
 
   if (!node) {
     return "";
   } else if (R.equals(typeof node, "string")) {
     return node;
-  } else if (R.equals(node.type, undefined)) {
+  } else if (R.equals(nodeType, undefined)) {
     return String(node);
   } else {
     const parent = path.getParentNode();
     const parentType = parent && parent.type;
-    const code = printNode(path, options, print);
+    const codeAndTerminatedInfo = printNode(path, options, print);
+    const code = printWithPassedOptions(
+      codeAndTerminatedInfo[0],
+      R.merge({ nodeType: nodeType, isTerminatedNode: codeAndTerminatedInfo[1] }, options)
+    )
 
     return !parentType ? concat([code, hardline]) : code;
   }
@@ -46,8 +52,9 @@ function genericPrint(path, options, print) {
 
 function printNode(path, options, print) {
   const node = path.getValue();
+  const nodeType = R.prop("type", node);
 
-  switch (node.type) {
+  switch (nodeType) {
     case "begin":
       return printBegin(path, options, print);
     case "class":
@@ -96,7 +103,7 @@ function printNode(path, options, print) {
     // case "send":
     //   return printSend(path, options, print);
     default:
-      return "Have not implemented type " + node.type + " yet.";
+      return ["Have not implemented type " + nodeType + " yet.", true];
   }
 }
 

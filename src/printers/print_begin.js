@@ -15,7 +15,7 @@ const isTerminated = (path) => {
   return R.isEmpty(node.children);
 }
 
-const printBegin = (path, options, print) => {
+const printContent = (path, options, print) => {
   const parent = path.getParentNode();
   const parentType = parent && parent.type;
 
@@ -37,6 +37,10 @@ const printBegin = (path, options, print) => {
       }
     }
   }
+}
+
+const printBegin = (path, options, print) => {
+  return [printContent(path, options, print), isTerminated(path)];
 }
 
 module.exports = printBegin;
